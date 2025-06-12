@@ -9,7 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body = "Name: $name\nEmail: $email\nMessage: $message";
 
     if (mail($to, $subject, $body)) {
-        echo "Thank you! Your message has been sent.";
+        // Redirect to success page
+        header("Location: thank-you.html");
+        exit(); // Always call exit after header redirect
     } else {
         echo "Oops! Something went wrong.";
     }
@@ -27,11 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container align-items-start">
-        <form id="surveyForm" action="https://formsubmit.co/kalejsroberts2008@gmail.com" method="POST" class="col-10 col-md-8 col-lg-6">
-
-            <input type="hidden" name="_next" value="https://playaxeron.github.io/testwebsite/thank-you.html">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="New Survey Submission!">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
             <div class="mb-4 me-5">
                 <label for="discordUsername" class="form-label survey-label">What's your Discord username?</label>
