@@ -1,0 +1,250 @@
+body {
+    background-color: #06000E;
+    color: #ffffff;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbar due to background */
+}
+
+.container-fluid.main-content {
+    max-width: 100vw;
+    padding: 0;
+    height: 100vh; /* Ensure container takes full viewport height */
+    position: relative; /* For absolute positioning of content if needed */
+}
+
+/* Desktop View */
+.desktop-view {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('BG_PC-14.jpg'); /* Full desktop background image */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure content is above background */
+}
+
+.desktop-view > div {
+    height: 100%; /* Make sure columns take full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-section-content {
+    /* Adjust padding/margin for content positioning on the left side of the desktop image */
+    padding-right: 5%; /* Example adjustment */
+    padding-left: 5%; /* Example adjustment */
+    text-align: left;
+}
+
+.right-section-content {
+    /* Adjust padding/margin for content positioning on the right side of the desktop image */
+    padding-left: 5%; /* Example adjustment */
+    padding-right: 5%; /* Example adjustment */
+    text-align: left;
+}
+
+.content-wrapper {
+    color: #ffffff; /* General content wrapper color remains white */
+    max-width: 80%; /* Adjust as needed */
+}
+
+.book-call-text, .take-action-text {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    color: #ffffff; /* Default text color for these paragraphs is white */
+}
+
+.btn-custom-desktop {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #8800FF;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    width: auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-custom-desktop:hover {
+    background-color: #8800FF;
+    border-color: #8800FF;
+    color: #ffffff;
+}
+
+/* Mobile View */
+.mobile-view {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('BG_MOBILE-13.jpg'); /* Full mobile background image */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure content is above background */
+    flex-direction: column;
+    justify-content: space-around; /* Distribute space between sections */
+    align-items: center;
+    padding-top: 15%; /* Adjust top padding to push content down */
+    padding-bottom: 15%; /* Adjust bottom padding */
+}
+
+.mobile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.content-wrapper-mobile-top, .content-wrapper-mobile-bottom {
+    text-align: center;
+    color: #ffffff; /* General content wrapper color remains white */
+    padding: 0 15px; /* Add some horizontal padding */
+}
+
+.content-wrapper-mobile-top {
+    margin-top: 10%; /* Adjust margin to position the top content */
+}
+
+.content-wrapper-mobile-bottom {
+    margin-bottom: 10%; /* Adjust margin to position the bottom content */
+}
+
+.take-action-text-mobile, .book-call-text-mobile {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    color: #ffffff; /* Default text color for these paragraphs is white */
+    text-align: center;
+}
+
+.purple-text {
+    color: #8800FF; /* This class specifically makes text purple */
+}
+
+/* Ensure purple-text within these elements maintains its own font-size if different */
+.book-call-text .purple-text,
+.take-action-text .purple-text {
+    font-size: inherit; /* Inherit font size from parent */
+}
+
+.book-call-text-mobile .purple-text,
+.take-action-text-mobile .purple-text {
+    font-size: inherit; /* Inherit font size from parent */
+}
+
+
+.btn-custom-mobile {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #8800FF;
+    padding: 8px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    width: auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-custom-mobile:hover {
+    background-color: #8800FF;
+    border-color: #8800FF;
+    color: #ffffff;
+}
+
+/* Hide desktop view on small screens and show mobile view */
+@media (max-width: 767.98px) {
+    .desktop-view {
+        display: none !important;
+    }
+    .mobile-view {
+        display: flex !important;
+    }
+    .book-call-text, .take-action-text {
+        font-size: 1.8rem; /* Smaller font size for mobile text */
+    }
+}
+
+/* Hide mobile view on larger screens and show desktop view */
+@media (min-width: 768px) {
+    .desktop-view {
+        display: flex !important;
+    }
+    .mobile-view {
+        display: none !important;
+    }
+}
+
+/* Existing styles that might be overridden or no longer needed due to new layout */
+.now-text, .level-up-heading, .how-proceed-text, .btn-custom {
+    display: none; /* Hide these from the current layout */
+}
+
+/* Survey specific styles (kept as they are not used in the main page) */
+body {
+    /* This body style is duplicated and might conflict, keep the first one */
+}
+
+.survey-label {
+    color: #a07cd8;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.survey-input {
+    background-color: #211c2e;
+    border: 1px solid #4a3e5e;
+    color: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.survey-input::placeholder {
+    color: #a07cd8;
+    opacity: 0.7;
+}
+
+.survey-input:focus {
+    background-color: #2b243b;
+    border-color: #c7a7ed;
+    box-shadow: 0 0 0 0.25rem rgba(160, 124, 216, 0.25);
+    color: #ffffff;
+}
+
+.survey-submit-btn {
+    background-color: #9146ff;
+    border-color: #9146ff;
+    color: white;
+    font-size: 1.25rem;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.survey-submit-btn:hover {
+    background-color: #7a3ed1;
+    border-color: #7a3ed1;
+}
+
+.survey-submit-btn:active {
+    background-color: #6a34bf !important;
+    border-color: #6a34bf !important;
+}
+
+.invalid-feedback {
+    color: #ff6b6b;
+}
