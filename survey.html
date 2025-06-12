@@ -1,3 +1,21 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    $to = "your_email@gmail.com";
+    $subject = "Form Submission from $name";
+    $body = "Name: $name\nEmail: $email\nMessage: $message";
+
+    if (mail($to, $subject, $body)) {
+        echo "Thank you! Your message has been sent.";
+    } else {
+        echo "Oops! Something went wrong.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
