@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container align-items-start">
+        <form id="surveyForm" action="https://formsubmit.co/kalejsroberts2008@gmail.com" method="POST" class="col-10 col-md-8 col-lg-6">
+
+            <input type="hidden" name="_next" value="thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Survey Submission!">
+
+            <div class="mb-4 me-5">
+                <label for="discordUsername" class="form-label survey-label-purp">What's your Discord username?</label>
+                <input type="text" class="form-control survey-input-disc" id="discordUsername" name="Discord Username" placeholder="e.g. yourusername123" required>
+                <div class="invalid-feedback">
+                    Please enter your Discord username.
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="biggestChallenge" class="form-label survey-label">What's your biggest challenge right now?</label>
+                <textarea class="form-control survey-input" id="biggestChallenge" name="Biggest Challenge" rows="4" required></textarea>
+                <div class="invalid-feedback">
+                    Please describe your biggest challenge.
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <label for="workingOn" class="form-label survey-label">What's one thing you're currently working on or trying to improve?</label>
+                <textarea class="form-control survey-input" id="workingOn" name="Currently Working On" rows="4" required></textarea>
+                <div class="invalid-feedback">
+                    Please describe what you're working on or trying to improve.
+                </div>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg survey-submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="survey.js"></script>
+</body>
+</html>
