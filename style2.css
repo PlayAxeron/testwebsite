@@ -129,13 +129,7 @@ i {
         padding: 0 15px; /* Apply consistent padding for mobile content */
         margin: 0 auto; /* Keep centered if needed, though width 100% will fill */
     }
-
-    .outer-scroll-container {
-        overflow-x: auto; /* This makes the entire section scrollable on mobile */
-        -webkit-overflow-scrolling: touch;
-        padding: 0; /* No extra padding on outer-scroll-container on mobile, handled by container-custom */
-    }
-
+    
     .plans-container {
         flex-direction: row;
         flex-wrap: nowrap; /* Keep cards in a single line */
@@ -145,6 +139,9 @@ i {
         padding: 0; /* No internal padding, controlled by container-custom */
         gap: 20px; /* Add some gap between cards on mobile for visual separation */
         padding-bottom: 10px; /* Space for scrollbar */
+        overflow-x: scroll; /* This makes the entire section scrollable on mobile */
+        -webkit-overflow-scrolling: touch;
+        padding: 0; /* No extra padding on outer-scroll-container on mobile, handled by container-custom */
     }
 
     .image-button-pair {
