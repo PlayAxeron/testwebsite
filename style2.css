@@ -147,7 +147,7 @@ i {
     .image-button-pair {
         flex-shrink: 0;
         width: 280px; /* A fixed width for each card to force overflow */
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         margin-right: 0; /* No margin right, gap will handle spacing */
         margin-bottom: 0;
     }
