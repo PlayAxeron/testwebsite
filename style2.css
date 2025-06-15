@@ -22,8 +22,8 @@
 body {
     background-color: #06000E;
     font-family: 'Inter', 'Arial', sans-serif;
-    margin: 0; /* Ensures no default margin */
-    padding: 0; /* Removed all padding from the body */
+    margin: 0;
+    padding: 0; /* REMOVED all padding from body to prevent extra space */
     overflow-x: hidden; /* Prevent body-level horizontal scrollbar */
     overflow-y: auto;
 }
@@ -36,10 +36,15 @@ i {
 }
 
 .container-custom {
-    max-width: 2400px;
+    max-width: 2400px; /* Reverted to a larger max-width for overall flexibility */
     width: 100%;
     margin: 0 auto; /* Center on desktop */
-    overflow: visible; /* Ensure content inside can overflow if needed */
+    overflow: visible;
+}
+
+.outer-scroll-container {
+    /* On desktop, this will be visible, on mobile it will handle scrolling */
+    padding: 0; /* Removed desktop padding, handled by container-custom on mobile */
 }
 
 .plans-container {
@@ -121,29 +126,32 @@ i {
 
 @media (max-width: 991.98px) {
     .container-custom {
-        margin: 0 auto;
-        padding: 0 5px; /* Apply consistent padding for mobile */
+        padding: 0 15px; /* Apply consistent padding for mobile content */
+        margin: 0 auto; /* Keep centered if needed, though width 100% will fill */
+    }
+
+    .outer-scroll-container {
+        overflow-x: auto; /* This makes the entire section scrollable on mobile */
+        -webkit-overflow-scrolling: touch;
+        padding: 0; /* No extra padding on outer-scroll-container on mobile, handled by container-custom */
     }
 
     .plans-container {
         flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto; /* Enable horizontal scrolling for cards */
-        scroll-snap-type: x mandatory; /* Enable scroll snapping */
-        -webkit-overflow-scrolling: touch;
-        justify-content: flex-start;
-        padding: 0; /* No internal padding for plans-container itself, controlled by container-custom */
+        flex-wrap: nowrap; /* Keep cards in a single line */
+        scroll-snap-type: x mandatory; /* Retain scroll snap for cards */
         width: 100%; /* Fill the width of container-custom's content area */
+        justify-content: flex-start;
+        padding: 0; /* No internal padding, controlled by container-custom */
+        gap: 20px; /* Add some gap between cards on mobile for visual separation */
         padding-bottom: 10px; /* Space for scrollbar */
-        gap: 20px; /* Specific gap for mobile cards */
     }
 
     .image-button-pair {
         flex-shrink: 0;
-        width: 280px; /* Fixed width for each card on mobile */
-        max-width: none;
-        scroll-snap-align: center; /* Snap to the center of the card */
-        margin-right: 0;
+        width: 280px; /* A fixed width for each card to force overflow */
+        scroll-snap-align: center;
+        margin-right: 0; /* No margin right, gap will handle spacing */
         margin-bottom: 0;
     }
 
@@ -204,6 +212,9 @@ i {
     .table-comparison .bi-check-lg,
     .table-comparison .bi-x-lg {
         font-size: 1.1rem;
+        align-items: center;
+        align-self: center;
+        align-content: center;
     }
 
     .badge-popular {
@@ -213,11 +224,10 @@ i {
     }
 
     .table-comparison .table-btn {
+        padding: 10px 10px;
         font-size: 12px;
         width: 80%;
         text-align: center;
-        padding: 10px 10px;
-        position: static;
     }
 
     table {
@@ -226,6 +236,10 @@ i {
 }
 
 @media (min-width: 992px) {
+    .outer-scroll-container {
+        overflow-x: visible; /* No horizontal scroll on desktop */
+        padding: 0; /* Remove padding for desktop */
+    }
     .plans-container {
         display: flex;
         flex-wrap: nowrap;
@@ -309,6 +323,7 @@ i {
     background-color: #E9ECEF;
 }
 
+
 .table-comparison .header-price-row th {
     background-color: #F8F9FA;
     color: #212529;
@@ -335,6 +350,7 @@ i {
     color: #6C757D;
     margin-left: 5px;
 }
+
 
 .table-comparison tbody th {
     text-align: left;
@@ -394,7 +410,7 @@ i {
 
 .table-comparison .table-button-row td {
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     background-color: #FFFFFF;
 }
 
