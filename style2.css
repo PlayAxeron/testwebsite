@@ -23,6 +23,7 @@ body {
     background-color: #06000E;
     font-family: 'Inter', 'Arial', sans-serif;
     margin: 0;
+    /* Removed padding from body, controlled by .container-custom */
     overflow-x: hidden; /* Prevent body-level horizontal scrollbar */
     overflow-y: auto;
 }
@@ -45,7 +46,7 @@ i {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 30px; /* Default gap for larger screens */
     padding: 0;
     width: 100%;
     overflow-x: hidden; /* Desktop: no horizontal scroll */
@@ -121,7 +122,7 @@ i {
 @media (max-width: 991.98px) {
     .container-custom {
         margin: 0 auto;
-        padding-right: -20px;
+        padding: 0 15px; /* Corrected to valid padding */
     }
 
     .plans-container {
@@ -133,11 +134,10 @@ i {
         justify-content: flex-start;
         padding: 0; /* Let container-custom handle overall padding */
         width: 100%; /* Fill the width of container-custom */
-        min-width: calc(100% - 30px); /* Ensure it takes up enough space to show overflow */
-        margin-left: 0; /* Removed negative margin */
-        padding-left: 0; /* Removed explicit padding */
+        /* Removed min-width as it's often not needed with width: 100% and overflow: auto */
+        /* Removed margin-left: 0; padding-left: 0; as they are redundant */
         padding-bottom: 10px; /* Space for scrollbar */
-         /* Spacing between cards */
+        gap: 20px; /* Specific gap for mobile cards */
     }
 
     .image-button-pair {
@@ -222,15 +222,12 @@ i {
         font-size: 12px;
         width: 80%;
         text-align: center;
-        padding: auto;
-        top: -10px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
+        padding: 10px 10px; /* Set explicit padding for table buttons */
+        position: static; /* Remove position properties if not intended for absolute/relative positioning */
     }
 
-    table {
-        width: 65%;
+    table { /* This rule for `table` generally is very broad and might affect other tables */
+        width: 100%; /* Changed from 65% for better table fit on small screens */
     }
 }
 
