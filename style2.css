@@ -124,7 +124,7 @@ i {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 767px) {
     .container-custom {
         padding: 0 15px; /* Apply consistent padding for mobile content */
         margin: 0 auto; /* Keep centered if needed, though width 100% will fill */
