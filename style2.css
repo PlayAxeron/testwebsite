@@ -1,0 +1,443 @@
+:root {
+    --light-card-bg: #FFFFFF;
+    --light-card-border: #8700FF;
+    --light-card-text: #4F4A5E;
+    --light-btn-bg: #DBC7F9;
+    --light-btn-text: #8B4EF7;
+    --light-price-color: #000000;
+    --light-period-color: #4F4A5E;
+
+    --most-picked-bg: #5A2E8C;
+    --most-picked-border: #8700FF;
+    --most-picked-text: #FFFFFF;
+    --most-picked-title-first: #8B4EF7;
+    --most-picked-title-second: #4F4A5E;
+    --most-picked-price: #8800FF;
+    --most-picked-btn-bg: #8800FF;
+    --most-picked-btn-text: #FFFFFF;
+
+    --checkmark-color: #8B4EF7;
+}
+
+body {
+    background-color: #06000E;
+    font-family: 'Inter', 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px; /* Kept padding on body for overall spacing */
+    overflow-x: hidden; /* Prevent body-level horizontal scrollbar */
+    overflow-y: auto;
+}
+
+i {
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+}
+
+.container-custom {
+    max-width: 1200px; /* Adjusted back to 1200px as per typical desktop containers */
+    width: 100%;
+    margin: 0 auto;
+    overflow: visible; /* Ensure inner content can overflow for the outer scroll container */
+}
+
+/* New style for the outer wrapper */
+.outer-scroll-container {
+    padding: 0 20px; /* Add some padding to the sides of the scrollable area on desktop */
+}
+
+.plans-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Handled by outer-scroll-container on mobile */
+    overflow-y: visible;
+}
+
+.image-button-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.image-button-pair img {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    display: block;
+}
+
+.button-wrapper {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding-bottom: 27px;
+}
+
+.btn {
+    background-color: var(--light-btn-bg);
+    color: var(--light-btn-text);
+    border: none;
+    border-radius: 2rem;
+    padding: 10px 15px; /* Reverted to 15px padding for buttons */
+    font-weight: 800;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 250px; /* Reverted to 250px for buttons */
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-middle {
+    background-color: var(--most-picked-btn-bg);
+    color: var(--light-card-bg);
+    border: none;
+    border-radius: 2rem;
+    padding: 10px 15px; /* Reverted to 15px padding for buttons */
+    font-weight: 800;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 250px; /* Reverted to 250px for buttons */
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-middle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 991.98px) {
+    .outer-scroll-container {
+        overflow-x: auto; /* This makes the entire section scrollable */
+        -webkit-overflow-scrolling: touch;
+        padding: 0 10px; /* Add padding here for mobile to give some space */
+    }
+
+    .plans-container {
+        flex-direction: row;
+        flex-wrap: nowrap; /* Keep cards in a single line */
+        scroll-snap-type: x mandatory; /* Retain scroll snap for cards */
+        width: fit-content; /* Allow container to grow to fit cards for scrolling */
+        min-width: 100%; /* Ensure it's at least viewport width */
+        justify-content: flex-start;
+        padding: 0; /* Padding moved to outer-scroll-container */
+        gap: 20px; /* Add some gap between cards on mobile for visual separation */
+    }
+
+    .image-button-pair {
+        flex-shrink: 0;
+        width: 280px; /* A fixed width for each card to force overflow */
+        scroll-snap-align: center;
+        margin-right: 0; /* No margin right, gap will handle spacing */
+        margin-bottom: 0;
+    }
+
+    .image-button-pair:last-child {
+        margin-right: 0;
+    }
+
+    .image-button-pair img {
+        width: 100%;
+        max-width: none;
+    }
+
+    .button-wrapper {
+        max-width: 100%;
+    }
+
+    /* Table adjustments for mobile */
+    .table-responsive {
+        overflow-x: visible; /* Remove individual table scrolling */
+        width: 100%;
+        padding: 0; /* Padding moved to outer-scroll-container */
+        margin-top: 20px; /* Keep margin top for spacing from cards */
+    }
+
+    .table-comparison {
+        font-size: 0.8rem;
+        min-width: 800px; /* Increased min-width to ensure the table pushes the outer container to scroll */
+    }
+
+    .table-comparison thead th {
+        padding: 0.7rem 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .table-comparison .header-plan-col {
+        font-size: 0.95rem;
+    }
+
+    .table-comparison .header-price-row th {
+        font-size: 1.1rem;
+    }
+
+    .table-comparison .period-sm {
+        font-size: 0.5em;
+    }
+
+    .table-comparison .header-note-row th {
+        font-size: 0.75rem;
+    }
+
+    .table-comparison tbody th {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .table-comparison tbody td {
+        padding: 0.6rem 0.3rem;
+    }
+
+    .table-comparison .bi-check-lg,
+    .table-comparison .bi-x-lg {
+        font-size: 1.1rem;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+    }
+
+    .badge-popular {
+        font-size: 0.65em;
+        padding: 0.15em 0.4em;
+        top: -10px;
+    }
+
+    .table-comparison .table-btn {
+        padding: 10px 10px;
+        font-size: 12px;
+        width: 90%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .outer-scroll-container {
+        overflow-x: visible; /* No horizontal scroll on desktop */
+        padding: 0; /* Remove padding added for mobile */
+    }
+    .plans-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    .image-button-pair {
+        flex-shrink: 0;
+        flex-basis: 300px;
+    }
+
+    .image-button-pair img {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .plans-container {
+        gap: 50px;
+    }
+}
+
+.thick {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.thickextra {
+    font-family: 'Arial', Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.table-responsive {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #DEE2E6;
+}
+
+.table-comparison {
+    --bs-table-bg: #FFFFFF;
+    --bs-table-color: #212529;
+    --bs-table-striped-bg: #F8F9FA;
+    --bs-table-border-color: #E9ECEF;
+    font-size: 1.05rem;
+}
+
+.table-comparison {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-comparison thead th {
+    color: #212529;
+    background-color: #E9ECEF;
+    padding: 1rem 0.5rem;
+    vertical-align: middle;
+    font-weight: 600;
+    border-bottom: 2px solid #DEE2E6;
+}
+
+.table-comparison .header-feature-col {
+    background-color: #FFFFFF;
+    border-right: 1px solid #DEE2E6;
+    font-weight: 700;
+}
+
+.table-comparison .header-plan-col {
+    position: relative;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.table-comparison .most-picked-header {
+    background-color: #E9ECEF;
+}
+
+
+.table-comparison .header-price-row th {
+    background-color: #F8F9FA;
+    color: #212529;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid #DEE2E6;
+}
+
+.table-comparison .header-note-row th {
+    background-color: #F8F9FA;
+    color: #6C757D;
+    font-size: 0.85rem;
+    padding-top: 0.25rem;
+    padding-bottom: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.table-comparison .period-sm {
+    font-size: 0.6em;
+    font-weight: normal;
+    color: #6C757D;
+    margin-left: 5px;
+}
+
+
+.table-comparison tbody th {
+    text-align: left;
+    font-weight: normal;
+    color: #212529;
+    padding: 0.75rem 0.5rem;
+    vertical-align: middle;
+}
+
+.table-comparison tbody td {
+    padding: 0.75rem 0.5rem;
+    vertical-align: middle;
+    color: #212529;
+}
+
+.table-comparison tbody tr:nth-of-type(odd) {
+    background-color: var(--bs-table-bg);
+}
+
+.table-comparison tbody tr:nth-of-type(even) {
+    background-color: var(--bs-table-striped-bg);
+}
+
+.table-comparison th,
+.table-comparison td {
+    border-color: var(--bs-table-border-color);
+}
+
+.table-comparison .bi-check-lg {
+    color: #28a745 !important;
+    font-size: 1.4rem;
+    font-weight: bold;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.table-comparison .bi-x-lg {
+    color: #dc3545 !important;
+    font-size: 1.4rem;
+    font-weight: bold;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.badge-popular {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8700FF;
+    color: white;
+    padding: 0.2em 0.6em;
+    border-radius: 0.3em;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.table-comparison .table-button-row td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #FFFFFF;
+}
+
+.table-comparison .table-button-row th {
+    background-color: #FFFFFF;
+    border-right: 1px solid #DEE2E6;
+}
+
+.table-comparison .table-btn {
+    background-color: #8B4EF7;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 2rem;
+    padding: 10px 10px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    width: 80%;
+    max-width: 200px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.table-comparison .table-btn:hover {
+    background-color: #6C2EC2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-heading {
+    color: #000000 !important;
+}
