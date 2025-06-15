@@ -220,9 +220,18 @@ i {
     }
 
     .table-comparison .table-btn {
-        padding: 10px 10px;
         font-size: 12px;
-        width: 90%;
+        width: 80%;
+        text-align: center;
+        padding: auto;
+        top: -10px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    table {
+        width: 65%;
     }
 }
 
@@ -397,7 +406,7 @@ i {
 
 .table-comparison .table-button-row td {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     background-color: #FFFFFF;
 }
 
