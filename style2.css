@@ -161,7 +161,7 @@ i {
 
     /* Table adjustments for mobile */
     .table-responsive {
-        overflow-x: none; /* Enable horizontal scrolling for the table */
+        overflow-x: auto; /* Enable horizontal scrolling for the table */
         -webkit-overflow-scrolling: touch;
         width: 100%;
         padding: 0;
