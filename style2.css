@@ -137,7 +137,7 @@ i {
         margin-left: 0; /* Removed negative margin */
         padding-left: 0; /* Removed explicit padding */
         padding-bottom: 10px; /* Space for scrollbar */
-        gap: 20px; /* Spacing between cards */
+         /* Spacing between cards */
     }
 
     .image-button-pair {
