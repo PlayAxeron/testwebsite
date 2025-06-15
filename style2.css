@@ -121,6 +121,7 @@ i {
 @media (max-width: 991.98px) {
     .container-custom {
         margin: 0 auto;
+        padding-right: -20px;
     }
 
     .plans-container {
