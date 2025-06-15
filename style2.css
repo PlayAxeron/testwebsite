@@ -36,7 +36,7 @@ i {
 }
 
 .container-custom {
-    max-width: 1200px;
+    max-width: 2400px;
     width: 100%;
     margin: 0 auto;
     overflow: visible; /* Ensure content inside can overflow if needed */
