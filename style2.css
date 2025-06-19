@@ -124,6 +124,11 @@ i {
         margin: 0 auto;
         padding: 0 15px; /* Overall padding for the main container */
     }
+    
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 
     .plans-container {
         flex-direction: row;
